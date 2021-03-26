@@ -2,15 +2,18 @@ import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { memo, VFC } from "react";
 
 type Props = {
+  id: number;
+  onClick: (id: number) => void;
   imageUrl: string;
   userName: string;
   fullName: string;
 };
 
 export const UserCard: VFC<Props> = memo((props) => {
-  const { imageUrl, userName, fullName } = props;
+  const { id, imageUrl, userName, fullName, onClick } = props;
   return (
     <Box
+      onClick={() => onClick(id)}
       p={4}
       w="260px"
       h="260px"
